@@ -1,0 +1,5 @@
+@import "tailwindcss";
+/* Add to index.css or a global stylesheet */
+.openwidget-container { /* Replace with actual class from dev tools */
+    z-index: 9999 !important;
+  }
