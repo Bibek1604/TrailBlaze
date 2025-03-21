@@ -9,7 +9,7 @@ import Blog from "./Components/Blog/Blog";
 import ViewBlog from "./Components/Blog/ViewBlog";
 import Login from "./Components/Auth/Login";
 import Register from "./Components/Auth/Register";
-import DashboardLayout from "./Components/adminpanel/DashboardLayout "; // Removed extra space
+import DashboardLayout from "./Components/adminpanel/DashboardLayout ";
 import AddCategory from "./Components/Category/AddCategory";
 import ViewCategory from "./Components/Category/ViewCategory";
 import AddPlace from "./Components/Place/AddPlace";
@@ -23,7 +23,7 @@ import FrontBlog from "./Components/Blog/FrontBlog";
 import ViewFrontBlog from "./Components/Blog/ViewFrontBlog";
 import Nav from "./Components/navbar/Nav";
 import ProtectedRoute from "./ProtectedRoute";
-import useAuthStore from "./Components/store/AuthStore"; // Updated path as per your import
+import useAuthStore from "./Components/store/AuthStore"; 
 import Chatbot from "./Components/Blog/Chatbot";
 import Dash from "./Components/adminpanel/Dash";
 const queryClient = new QueryClient();
@@ -55,10 +55,9 @@ function App() {
             <Route path="/nav" element={<Nav />} />
             <Route path="/blogging" element={<FrontBlog />} />
             <Route path="/ViewFrontBlog" element={<ViewFrontBlog />} />
-            <Route path="/about" element={<div>About Page</div>} /> {/* Placeholder; replace with actual component */}
-            <Route path="/destinations" element={<div>Destinations Page</div>} /> {/* Placeholder; replace with actual component */}
+            <Route path="/about" element={<div>About Page</div>} /> 
+            <Route path="/destinations" element={<div>Destinations Page</div>} /> 
 
-            {/* Protected Routes */}
             <Route element={<ProtectedRoute />}>
               <Route
                 path="/dashboard"

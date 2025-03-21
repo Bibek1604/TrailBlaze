@@ -1,11 +1,11 @@
 // src/hooks/useCategory.js
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
-import { fetchCategories, addCategory, updateCategory, deleteCategory } from '../api/Category';
+import { fetchCategories, addCategory, updateCategory, deleteCategory } from '../api/Category';  // Correct the imports
 
 export const useCategories = () => {
   return useQuery({
     queryKey: ['categories'],
-    queryFn: fetchCategories,
+    queryFn: fetchCategories,  // Use the imported fetchCategories function
     onError: (error) => {
       console.error('Error fetching categories:', error);
     },
