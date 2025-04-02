@@ -1,3 +1,4 @@
+// src/api/Details.js
 import axiosInstance from './Index';
 
 // Fetch details
@@ -8,7 +9,7 @@ export const fetchDetails = async () => {
 
 // Add detail
 export const addDetail = async (data) => {
-  const response = await axiosInstance.post('details/add/', data);
+  const response = await axiosInstance.post('/details/add/', data);
   return response.data;
 };
 
@@ -21,10 +22,5 @@ export const updateDetail = async (id, data) => {
 // Delete detail
 export const deleteDetail = async (id) => {
   const response = await axiosInstance.delete(`/details/delete/${id}/`);
-  return response.data;
-};
-
-export const fetchDetailById = async (id) => {
-  const response = await axiosInstance.get(`/details/place/${id}/`);
   return response.data;
 };

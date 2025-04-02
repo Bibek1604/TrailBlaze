@@ -43,6 +43,10 @@ function App() {
             <Route path="/trails" element={<Trails />} />
             <Route path="/details/:id" element={<Final />} />
             <Route path="/details" element={<Final />} />
+            <Route
+            path="/categories/:categoryId/places/:placeId"
+            element={<Final />}
+          />
             <Route path="/categories/:categoryId/trails" element={<Trails />} />
             <Route path="/MapofNepal" element={<MapOfNepal />} />
             <Route path="/login" element={<Login />} />
