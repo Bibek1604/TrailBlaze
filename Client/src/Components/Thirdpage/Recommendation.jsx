@@ -1,98 +1,129 @@
-function Recommendation() {
+function Recommendation({ places, foods, guide, recommendation }) {
   return (
-    <div>
-      <section className="max-w-screen-xl px-6 py-10 mx-auto">
-        <h2 className="mt-10 mb-10 text-4xl font-bold text-orange">Our Recommendations</h2>
+    <div className="bg-gray-100 py-12">
+      <section className="max-w-screen-xl mx-auto px-6">
+        <h2 className="mb-12 text-3xl sm:text-4xl font-bold text-orange-600 text-center">
+          Our Recommendations
+        </h2>
 
         {/* Recommended Places Section */}
-        <div className="mb-12 space-y-8">
-          <h3 className="text-3xl font-semibold text-gray-900">Places to Visit</h3>
-          <div className="grid gap-8 md:grid-cols-2">
-            <div className="flex flex-col p-6 rounded-lg shadow-lg bg-gray-50">
-              <img
-                src="https://fulltimeexplorer.com/wp-content/uploads/2019/06/Most-Beautiful-places-of-Nepal-1-1.jpg"
-                alt="Place 1"
-                className="object-cover w-full h-64 mb-4 rounded-md"
-              />
-              <h4 className="text-xl font-semibold text-gray-800">Manang</h4>
-              <p className="mt-2 text-gray-600">
-                Known for its scenic beauty and mountainous landscapes, Manang is a must-visit place. It offers breathtaking views, unique culture, and access to incredible trekking paths.
-              </p>
+        <div className="mb-12">
+          <h3 className="text-2xl font-semibold text-gray-900 mb-6">Places to Visit</h3>
+          {places?.length > 0 ? (
+            <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+              {places.map((place) => (
+                <div
+                  key={place.id || place.name} // Use id if available from backend
+                  className="flex flex-col p-5 rounded-lg shadow-md bg-white hover:shadow-lg transition-shadow duration-300"
+                >
+                  <img
+                    src={place.image || "https://via.placeholder.com/300"}
+                    alt={place.name || "Unnamed Place"}
+                    className="object-cover w-full h-56 rounded-md mb-4"
+                  />
+                  <h4 className="text-xl font-semibold text-gray-800">
+                    {place.name || "Unnamed Place"}
+                  </h4>
+                  <p className="mt-2 text-gray-600 line clamp-3">
+                    {place.description || "No description provided"}
+                  </p>
+                </div>
+              ))}
             </div>
-            <div className="flex flex-col p-6 rounded-lg shadow-lg bg-gray-50">
-              <img
-                src="https://mustangnepal.com/wp-content/uploads/2022/01/things-todo.jpg"
-                alt="Place 2"
-                className="object-cover w-full h-64 mb-4 rounded-md"
-              />
-              <h4 className="text-xl font-semibold text-gray-800">Mustang</h4>
-              <p className="mt-2 text-gray-600">
-                Mustang is famous for its rich history, monasteries, and mystical landscapes. Explore the Tibetan influences, discover ancient caves, and admire the mesmerizing beauty of the region.
-              </p>
-            </div>
-          </div>
+          ) : (
+            <p className="text-gray-600 text-center">No recommended places available.</p>
+          )}
         </div>
 
         {/* Must-Try Food Section */}
-        <div className="mb-12 space-y-8">
-          <h3 className="text-2xl font-semibold text-gray-900">Must-Try Foods</h3>
-          <ul className="space-y-4">
-            <li className="flex items-center space-x-4">
-              <span className="text-lg text-gray-600">1. Dal Bhat</span>
-              <p className="text-gray-500">
-                A staple food in Nepal, Dal Bhat consists of lentil soup served with rice, vegetables, and pickles.
-              </p>
-            </li>
-            <li className="flex items-center space-x-4">
-              <span className="text-lg text-gray-600">2. Momos</span>
-              <p className="text-gray-500">
-                These delicious Tibetan dumplings are filled with vegetables or meat and are a popular snack across Nepal.
-              </p>
-            </li>
-            <li className="flex items-center space-x-4">
-              <span className="text-lg text-gray-600">3. Sel Roti</span>
-              <p className="text-gray-500">
-                A traditional Nepali sweet, Sel Roti is a crispy rice doughnut enjoyed during festivals and special occasions.
-              </p>
-            </li>
-          </ul>
+        <div className="mb-12">
+          <h3 className="text-2xl font-semibold text-gray-900 mb-6">Must-Try Foods</h3>
+          {foods?.length > 0 ? (
+            <ul className="space-y-4">
+              {foods.map((food) => (
+                <li
+                  key={food.id || food.name} // Use id if available
+                  className="flex flex-col sm:flex-row items-start sm:items-center space-y-2 sm:space-y-0 sm:space-x-4 bg-white p-4 rounded-lg shadow-sm"
+                >
+                  <span className="text-lg font-medium text-gray-800">
+                    {food.name || "Unnamed Food"}
+                  </span>
+                  <p className="text-gray-600">
+                    {food.description || "No description provided"}
+                  </p>
+                </li>
+              ))}
+            </ul>
+          ) : (
+            <p className="text-gray-600 text-center">No must-try foods available.</p>
+          )}
         </div>
 
         {/* Recommended Guide Section */}
-        <div>
-          <h3 className="text-2xl font-semibold text-gray-900">Our Recommended Guide</h3>
-          <div className="flex items-center p-6 mt-6 rounded-lg shadow-lg bg-gray-50">
-            <img
-              src="https://randomuser.me/api/portraits/men/75.jpg"
-              alt="Guide"
-              className="object-cover w-24 h-24 rounded-full"
-            />
-            <div className="ml-6">
-              <h4 className="text-xl font-semibold text-gray-800">Rajesh Khadka</h4>
-              <p className="mt-2 text-gray-600">
-                With over 10 years of experience in guiding tourists around the Himalayan region, Rajesh is known for his detailed knowledge and friendly approach. Whether you're a trekker or simply exploring, Rajesh will make your journey unforgettable.
-              </p>
+        <div className="mb-12">
+          <h3 className="text-2xl font-semibold text-gray-900 mb-6">Recommended Guides</h3>
+          {guide?.length > 0 ? (
+            <div className="grid gap-6 sm:grid-cols-2">
+              {guide.map((guideItem) => (
+                <div
+                  key={guideItem.id || guideItem.name}
+                  className="flex items-center p-5 rounded-lg shadow-md bg-white"
+                >
+                  <img
+                    src={guideItem.image || "https://via.placeholder.com/100"}
+                    alt={guideItem.name || "Unnamed Guide"}
+                    className="object-cover w-20 h-20 rounded-full"
+                  />
+                  <div className="ml-4">
+                    <h4 className="text-xl font-semibold text-gray-800">
+                      {guideItem.name || "Unnamed Guide"}
+                    </h4>
+                    <p className="mt-1 text-gray-600">
+                      {guideItem.description || "No description provided"}
+                    </p>
+                  </div>
+                </div>
+              ))}
             </div>
-          </div>
+          ) : (
+            <p className="text-gray-600 text-center">No recommended guides available.</p>
+          )}
         </div>
 
-        {/* Your Recommendation Section */}
-        <div className="mt-12 space-y-8">
-          <h3 className="text-3xl font-semibold text-gray-900">Your Recommendation</h3>
-          <div className="bg-gray-50 p-6 rounded-lg shadow-lg">
-            <h4 className="text-xl font-semibold text-gray-800">Pashupatinath Temple</h4>
-            <p className="mt-2 text-gray-600">
-              Pashupatinath is one of the holiest temples in Nepal, offering a truly spiritual experience. Known for its incredible architecture and the holy bath in the Bagmati River, it’s a must-visit for anyone looking to connect with Nepal's rich cultural heritage.
-            </p>
-            <a
-              href="/pashupatinath"
-              className="mt-4 inline-block text-orange font-semibold hover:text-orange-700"
-            >
-              Learn More
-            </a>
-          </div>
+        {/* Personalized Recommendation Section */}
+        <div>
+          <h3 className="text-2xl font-semibold text-gray-900 mb-6">Personalized Recommendation</h3>
+          {recommendation?.length > 0 ? (
+            <div className="grid gap-6 sm:grid-cols-2">
+              {recommendation.map((rec) => (
+                <div
+                  key={rec.id || rec.name}
+                  className="bg-white p-5 rounded-lg shadow-md"
+                >
+                  <img
+                    src={rec.image || "https://via.placeholder.com/300"}
+                    alt={rec.name || "Unnamed Recommendation"}
+                    className="object-cover w-full h-48 rounded-md mb-4"
+                  />
+                  <h4 className="text-xl font-semibold text-gray-800">
+                    {rec.name || "Unnamed Recommendation"}
+                  </h4>
+                  <p className="mt-2 text-gray-600">
+                    {rec.description || "No description provided"}
+                  </p>
+                  <a
+                    href={rec.link || "#"}
+                    className="mt-3 inline-block text-orange-600 font-medium hover:text-orange-700 transition-colors"
+                  >
+                    Learn More
+                  </a>
+                </div>
+              ))}
+            </div>
+          ) : (
+            <p className="text-gray-600 text-center">No personalized recommendations available.</p>
+          )}
         </div>
-
       </section>
     </div>
   );

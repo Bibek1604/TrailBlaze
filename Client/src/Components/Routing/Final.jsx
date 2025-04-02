@@ -30,13 +30,28 @@ function Final() {
   // Assuming data is the details object for the place
   return (
     <div>
-      <Crausel images={[data?.image1, data?.image2, data?.image3, data?.image4, data?.image5]} />
-      <Hard name={data?.name} difficulty={data?.difficulty} duration={data?.duration} />
-      <Touroverview overview={data?.tour_overview} />
+<Crausel
+  image1={data?.image1}
+  image2={data?.image2}
+  image3={data?.image3}
+  image4={data?.image4}
+  image5={data?.image5}
+/>
+<Hard 
+        difficulty={data?.difficulty}
+        duration={data?.duration}
+        location={data?.location}
+      />
+            <Touroverview overview={data?.tour_overview} />
       <What included={data?.whats_included} />
       <Map mapImage={data?.map_image} />
-      <Recommendation recommendations={data?.recommendations} />
-      <Faq faqs={data?.faqs} />
+      <Recommendation
+        places={data?.recommended_places} // Array of places to visit
+        foods={data?.must_try_foods} // Array of must-try foods
+        guide={data?.recommended_guide} // Guide information
+        recommendation={data?.your_recommendation} // Personal recommendation
+      />
+            <Faq faqs={data?.faqs} />
     </div>
   );
 }
