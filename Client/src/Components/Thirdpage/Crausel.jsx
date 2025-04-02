@@ -1,5 +1,13 @@
-function Crausel() {
-  const imagePath = "https://www.holidaystonepal.in/media/files/Blogs/Pashupatinath-Temple-Photos/Pashupatinath-Temple.png"
+function Crausel({ images }) {
+  // Default images in case the prop isn't provided or is incomplete
+  const defaultImage = "https://www.holidaystonepal.in/media/files/Blogs/Pashupatinath-Temple-Photos/Pashupatinath-Temple.png";
+  const [image1, image2, image3, image4, image5] = images || [
+    defaultImage,
+    defaultImage,
+    defaultImage,
+    defaultImage,
+    defaultImage,
+  ];
 
   return (
     <div>
@@ -13,14 +21,11 @@ function Crausel() {
                 className="relative flex flex-col flex-grow px-4 pt-40 pb-4 overflow-hidden rounded-lg group"
               >
                 <img
-                  src={imagePath}
+                  src={image1}
                   alt="Pokhara"
                   className="absolute inset-0 object-cover w-full h-full transition-transform duration-500 ease-in-out group-hover:scale-105"
                 />
                 <div className="absolute inset-0 bg-gradient-to-b from-gray-900/25 to-gray-900/5"></div>
-                <h3 className="absolute top-0 left-0 z-10 p-4 text-2xl font-medium text-white">
-                  Pokhara
-                </h3>
               </a>
             </div>
 
@@ -31,14 +36,11 @@ function Crausel() {
                 className="relative flex flex-col px-4 pt-40 pb-4 mb-4 overflow-hidden rounded-lg group"
               >
                 <img
-                  src={imagePath}
+                  src={image2}
                   alt="Rotang La Pass"
                   className="absolute inset-0 object-cover w-full h-full transition-transform duration-500 ease-in-out group-hover:scale-105"
                 />
                 <div className="absolute inset-0 bg-gradient-to-b from-gray-900/25 to-gray-900/5"></div>
-                <h3 className="absolute top-0 left-0 z-10 p-4 text-2xl font-medium text-white">
-                  Rotang La Pass
-                </h3>
               </a>
               <div className="grid grid-cols-2 gap-4">
                 <a
@@ -46,7 +48,7 @@ function Crausel() {
                   className="relative flex flex-col px-4 pt-40 pb-4 overflow-hidden rounded-lg group"
                 >
                   <img
-                    src={imagePath}
+                    src={image3}
                     alt="Manang"
                     className="absolute inset-0 object-cover w-full h-full transition-transform duration-500 ease-in-out group-hover:scale-105"
                   />
@@ -60,14 +62,11 @@ function Crausel() {
                   className="relative flex flex-col px-4 pt-40 pb-4 overflow-hidden rounded-lg group"
                 >
                   <img
-                    src={imagePath}
+                    src={image4}
                     alt="Mustang"
                     className="absolute inset-0 object-cover w-full h-full transition-transform duration-500 ease-in-out group-hover:scale-105"
                   />
                   <div className="absolute inset-0 bg-gradient-to-b from-gray-900/25 to-gray-900/5"></div>
-                  <h3 className="absolute top-0 left-0 z-10 p-4 text-2xl font-medium text-white">
-                    Mustang
-                  </h3>
                 </a>
               </div>
             </div>
@@ -79,14 +78,11 @@ function Crausel() {
                 className="relative flex flex-col flex-grow px-4 pt-40 pb-4 overflow-hidden rounded-lg group"
               >
                 <img
-                  src={imagePath}
+                  src={image5}
                   alt="Sagarmatha"
                   className="absolute inset-0 object-cover w-full h-full transition-transform duration-500 ease-in-out group-hover:scale-105"
                 />
                 <div className="absolute inset-0 bg-gradient-to-b from-gray-900/25 to-gray-900/5"></div>
-                <h3 className="absolute top-0 left-0 z-10 p-4 text-2xl font-medium text-white">
-                  Sagarmatha
-                </h3>
               </a>
             </div>
           </div>

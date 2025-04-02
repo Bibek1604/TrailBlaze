@@ -72,10 +72,10 @@ function Trails() {
                 Discover {categoryName}
               </h1>
               <p className="text-xl mb-8">
-                Explore the majestic trails and immerse yourself in Nepal's
+                Explore the majestic trails and immerse yourself in Nepal&apos;s
                 beauty
               </p>
-              <button className="bg-green-600 hover:bg-green-700 text-white px-8 py-3 rounded-lg font-semibold transition duration-300">
+              <button className="bg-green-600 hov er:bg-green-700 text-white px-8 py-3 rounded-lg font-semibold transition duration-300">
                 Start Your Journey
               </button>
             </div>

@@ -32,7 +32,6 @@ const useDetailsStore = create((set) => ({
   // Update detail
   updateDetail: async (id, updatedDetail) => {
     try {
-      const response = await axiosInstance.put(`/details/${id}`, updatedDetail);
       set((state) => ({
         details: state.details.map((detail) =>
           detail.id === id ? { ...detail, ...updatedDetail } : detail
